@@ -1,22 +1,15 @@
- # Go parameters
-    GOCMD=go
-    GOBUILD=$(GOCMD) build
-    GOCLEAN=$(GOCMD) clean
-    GOTEST=$(GOCMD) test
-    GOGET=$(GOCMD) get
-    BINARY_NAME=copygo
 
+    all: install build test lint deps
 
-    all: test build
+    install:
+	        go install $(GOPATH)/bin/copygo.go
     build:
-            $(GOBUILD) -o $(BINARY_NAME) -v
+            go build -o copygo
     test:
-            $(GOTEST) -v ./...
-    clean:
-            $(GOCLEAN)
-            rm -f $(BINARY_NAME)
-    run:
-            $(GOBUILD) -o $(BINARY_NAME) -v ./...
-            ./$(BINARY_NAME)
+            go test -v ./...
+    lint:
+    	    golangci-lint run
+
     deps:
-            $(GOGET) github.com/KateGritsay/CopyGo
+            go get github.com/KateGritsay/CopyGo
+            go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
