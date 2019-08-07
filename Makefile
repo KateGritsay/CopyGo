@@ -2,7 +2,7 @@
     all: install build test lint deps
 
     install:
-	        go install $(GOPATH)/bin/copygo.go
+	        go install $(GOPATH)/src/copygo.go
     build:
             go build -o copygo
     test:
