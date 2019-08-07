@@ -5,7 +5,7 @@
 	        go install $(GOPATH)/src/copygo.go
     build:
             go build -o copygo
-    
+
     lint:
     	    golangci-lint run
 
