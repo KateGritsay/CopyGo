@@ -1,12 +1,11 @@
 
-    all: install build test lint deps
+    all: install build lint deps
 
     install:
 	        go install $(GOPATH)/src/copygo.go
     build:
             go build -o copygo
-    test:
-            go test -v ./...
+    
     lint:
     	    golangci-lint run
 

@@ -14,6 +14,7 @@ func main() {
 	offset :=flag.Int("offset", 0, "offset point for start copy")
 	limit := flag.Int("limit", 0, "limit bytes to copy")
 	flag.Parse()
+
 	fromFile, err := os.Open(*from)
 	if err != nil {
 		fmt.Println("Can't open file for coping", err)
